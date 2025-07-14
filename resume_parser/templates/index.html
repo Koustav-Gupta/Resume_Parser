@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Parser</title>
+    <style>
+        body {
+            background: #eef2f3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .parser-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 450px;
+            text-align: center;
+        }
+        h1 {
+            color: #27ae60;
+        }
+        input[type="file"] {
+            margin-top: 20px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1e874b;
+        }
+        .result {
+            margin-top: 30px;
+            text-align: left;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="parser-container">
+        <h1>📄 Resume Parser</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="resume" required />
+            <br>
+            <button type="submit">Parse Resume</button>
+        </form>
+
+         
+            <div class="result">
+                <h3>Extracted Information:</h3>
+                <p><strong>Name:</strong> {{ data.name }}</p>
+                <p><strong>Email:</strong> {{ data.email }}</p>
+                <p><strong>Skills:</strong> {{ data.skills }}</p>
+            </div>
+         
+    </div>
+</body>
+</html>
